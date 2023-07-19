@@ -90,7 +90,7 @@ def compile_stack(stack_definition: list[type[Service] | type[Network] | type[Mo
         out += dedent(f"""
         # action:create_if_not_exists || create network '{network.name}'
         {var_name} = subprocess.run(
-            args=['docker', 'network', 'create', '{network.name}', '-d', '{network.driver}']
+            args=['docker', 'network', 'create', '{network.name}', '-d', '{network.driver.name.lower()}']
         )\n
         """)
 
