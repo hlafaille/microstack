@@ -56,7 +56,7 @@ cmd_pull_mysql = subprocess.run(
 
 # action:run || run 'mysql'
 cmd_run_mysql = subprocess.run(
-    args=['docker', 'run', 'mysql']
+    args=['docker', 'run', 'mysql', '-d']
 )
 
 # action:pull || pull 'nginx'
@@ -66,7 +66,7 @@ cmd_pull_nginx = subprocess.run(
 
 # action:run || run 'nginx'
 cmd_run_nginx = subprocess.run(
-    args=['docker', 'run', 'nginx']
+    args=['docker', 'run', 'nginx', '-d']
 )
 
 ```
