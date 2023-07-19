@@ -1,6 +1,12 @@
 # Microstack
 Define your containerized stack in Python.
 
+# Planned
+* Implement an abstract syntax tree as compiler 
+  output, instead of generating raw Python. This 
+  will allow us to implement multiple outputs.
+
+
 # Usage
 Create `stack.py`, describe your stack using familiar names as Python types.
 ```python
