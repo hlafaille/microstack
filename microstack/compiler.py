@@ -114,7 +114,7 @@ def compile_stack(stack_definition: list[type[Service] | type[Network] | type[Mo
         out += dedent(f"""
                 # action:run || run '{instantiated_type.name}'
                 {var_name} = subprocess.run(
-                    args=['docker', 'run', '{instantiated_type.name}', '-d']
+                    args=['docker', 'run', '-d', '{instantiated_type.name}']
                 )
                 """)
     return out
