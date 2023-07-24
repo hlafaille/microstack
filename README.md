@@ -20,7 +20,6 @@ class MyBackend(Network):
 
 class MyFrontend(Network):
     """My frontend network!"""
-    name: str = "frontend"
 
 
 # Services
