@@ -20,7 +20,7 @@ class Frontend(Service):
 
 class Backend(Service):
     image: str = "alpine:latest"
-    name: str = "frontend"
+    name: str = "backend"
     networks: list[Network] = [MyBackend()]
     mounts: list[Mount] = [Mount(source="/path/to/my/backend/development/repo", target="/app")]
 
