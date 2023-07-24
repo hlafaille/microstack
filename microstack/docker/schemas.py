@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 
-from microstack.docker.enums import NetworkDrivers
+from microstack.docker.enums import DockerCliNetworkDrivers
 
 
-class Network(BaseModel):
+class DockerCliNetwork(BaseModel):
     id_: str
     name: str
-    driver: NetworkDrivers
+    driver: DockerCliNetworkDrivers
     scope: str  # todo update this with an enum

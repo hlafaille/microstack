@@ -1,13 +1,13 @@
 from enum import Enum
 
 
-class NetworkDrivers(Enum):
+class DockerCliNetworkDrivers(Enum):
     BRIDGE = "bridge"
     HOST = "host"
     NULL = "null"
 
 
-class MountTypes(Enum):
+class DockerCliMountTypes(Enum):
     MOUNT = "mount"
     BIND = "bind"
 

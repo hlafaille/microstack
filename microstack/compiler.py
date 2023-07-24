@@ -28,6 +28,7 @@ def parse_stack_from_file(module_path: str, module_name: str,) -> list[type[Serv
     stack_dict = stack.__dict__
 
     # iterate over the keys, filter out the ones we don't need (and convert this to a list)
+    logging.info(f"dealing with '{module_path}/{module_name}.py' as our stack description")
     stack_definition: list[type[Service] | type[Network] | type[Mount]] = []
     for key in stack_dict.keys():
         if "__" in key:
@@ -44,7 +45,7 @@ def compile_stack(stack_definition: list[type[Service] | type[Network] | type[Mo
     :param stack_definition: List of `Service`, `Network`, and `Mount` schema(s)
     :return: services: Executable Python code
     """
-    logging.info(f"analyizing stack definition with {len(stack_definition)} element(s)")
+    logging.info(f"parsing stack definition with {len(stack_definition)} element(s)")
 
     def _does_network_exist(network: Network) -> bool:
         """

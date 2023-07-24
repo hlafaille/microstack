@@ -2,7 +2,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from microstack.docker.enums import NetworkDrivers, MountTypes
+from microstack.docker.enums import DockerCliNetworkDrivers, DockerCliMountTypes
 
 
 class PublishedPort(BaseModel):
@@ -13,15 +13,14 @@ class PublishedPort(BaseModel):
 
 class Network(BaseModel):
     """Represents a network that can be shared with multiple containers"""
-    name: str = Field(title="Name of the network")
-    driver: NetworkDrivers = Field(title="Which network driver to use", default=NetworkDrivers.BRIDGE)
+    driver: DockerCliNetworkDrivers = Field(title="Which network driver to use", default=DockerCliNetworkDrivers.BRIDGE)
 
 
 class Mount(BaseModel):
     """Represents a verbose mount that can be shared with multiple containers"""
     source: str = Field(title="Host filesystem path")
     target: str = Field(title="Remote filesystem path")
-    type_: MountTypes = Field(title="Which type should the mount be", default=MountTypes.BIND)
+    type_: DockerCliMountTypes = Field(title="Which type should the mount be", default=DockerCliMountTypes.BIND)
 
 
 class Service(BaseModel):

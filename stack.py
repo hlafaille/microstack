@@ -4,7 +4,6 @@ from microstack.schemas import Network, Service
 # Networks
 class MyBackend(Network):
     """My backend network!"""
-    name: str = "backend"
 
 
 class MyFrontend(Network):

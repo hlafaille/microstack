@@ -1,11 +1,11 @@
 import logging
 import subprocess
 
-from microstack.docker.enums import NetworkDrivers
-from microstack.docker.schemas import Network
+from microstack.docker.enums import DockerCliNetworkDrivers
+from microstack.docker.schemas import DockerCliNetwork
 
 
-def networks_get() -> list[Network]:
+def networks_get() -> list[DockerCliNetwork]:
     """
     Get a list of Network(s) currently configured on the host
     :return: list of Network schema(s)
@@ -22,14 +22,14 @@ def networks_get() -> list[Network]:
 
     # parse the networks command output
     networks_cmd_output = networks_cmd.stdout.decode().split("\n")
-    payload: list[Network] = []
+    payload: list[DockerCliNetwork] = []
     for elem, line in enumerate(networks_cmd_output):
         if elem == 0 or len(line) == 0:
             continue
         line = line.split(" ")
         line = [x for x in line if x != '']
         payload.append(
-            Network(
+            DockerCliNetwork(
                 id_=line[0],
                 name=line[1],
                 driver=NetworkDrivers(line[2]),
