@@ -1,4 +1,4 @@
-from microstack.schemas import Network, Service
+from microstack.schemas import Network, Service, Mount
 
 
 # Networks
@@ -12,13 +12,14 @@ class MyFrontend(Network):
 
 
 # Services
-class MySQL(Service):
-    image: str = "mysql:latest"
-    name: str = "mysql"  # not required, leaving None will make this name lowercase
+class Ubuntu(Service):
+    image: str = "ubuntu:latest"
+    name: str = "ubuntu"
     networks: list[Network] = [MyBackend()]
+    mounts: list[Mount] = [Mount(source="/home/hunter/Downloas", target="/downloads")]
 
 
 class Nginx(Service):
     image: str = "nginx:latest"
-    name: str = "nginx"  # not required, leaving None will make this name lowercase
+    name: str = "nginx"
     networks: list[Network] = [MyBackend()]
