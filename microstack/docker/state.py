@@ -32,7 +32,7 @@ def networks_get() -> list[DockerCliNetwork]:
             DockerCliNetwork(
                 id_=line[0],
                 name=line[1],
-                driver=NetworkDrivers(line[2]),
+                driver=DockerCliNetworkDrivers(line[2]),
                 scope=line[3]
             )
         )

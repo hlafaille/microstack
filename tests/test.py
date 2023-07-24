@@ -1,7 +1,4 @@
-import importlib
-import json
-
-from microstack.compiler import parse_stack_from_file, compile_stack
+from microstack.compiler import parse_stack_from_file
 from microstack.orchestrator import orchestrator_up
 
 if __name__ == "__main__":
@@ -11,10 +8,5 @@ if __name__ == "__main__":
         module_name="stack"
     )
 
-    # compile the stack
-    #out = compile_stack(
-    #    stack_definition=stack_definition
-    #)
-    #print("\n\noutput:\n" + out)'
-
+    # or, we could orchestrate the stack directly
     orchestrator_up(stack_definition)

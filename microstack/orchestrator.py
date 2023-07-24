@@ -43,7 +43,7 @@ def orchestrator_up(stack_definition: list[type[Service] | type[Network] | type[
             continue
         for mount in instantiated_type.mounts:
             if not os.path.exists(mount.source):
-                logging.warning(f"mount source'{mount.source}' does not exist on host, will be created by docker")
+                logging.warning(f"mount source '{mount.source}' does not exist on host, will be created by docker")
 
     # iterate over stack definitions, pull images if it doesn't exist
     for type_ in stack_definition:

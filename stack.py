@@ -8,15 +8,21 @@ class MyBackend(Network):
 
 class MyFrontend(Network):
     """My frontend network!"""
-    name: str = "frontend"
 
 
 # Services
-class Ubuntu(Service):
-    image: str = "ubuntu:latest"
-    name: str = "ubuntu"
+class Frontend(Service):
+    image: str = "alpine:latest"
+    name: str = "frontend"
     networks: list[Network] = [MyBackend()]
-    mounts: list[Mount] = [Mount(source="/home/hunter/Downloas", target="/downloads")]
+    mounts: list[Mount] = [Mount(source="/path/to/my/frontend/development/repo", target="/app")]
+
+
+class Backend(Service):
+    image: str = "alpine:latest"
+    name: str = "frontend"
+    networks: list[Network] = [MyBackend()]
+    mounts: list[Mount] = [Mount(source="/path/to/my/backend/development/repo", target="/app")]
 
 
 class Nginx(Service):
